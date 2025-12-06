@@ -370,7 +370,7 @@
         <div class="content-area">
             <!-- Love Letter Tab -->
             <div class="tab-content active" id="love-letter">
-                <h2>My Dearest Umit!</h2>
+                <h2>My Dearest</h2>
                 <div class="letter" id="loveLetter">
                     <div class="letter-header">
                         <h3>A Letter For You</h3>
@@ -433,6 +433,26 @@
                 </div>
                 <div class="note">
                     <p>You're mine.. always</p>
+                    <div style="text-align:center; margin-top:25px;">
+    <h2>Days Together ❤️</h2>
+    <h3 id="daysCounter" style="font-size:28px; color:#ff3366;"></h3>
+</div>
+
+<script>
+    //  (ЖЫЛ, АЙ, КҮН)
+    const startDate = new Date("2025-04-03");
+
+    function updateDays() {
+        const today = new Date();
+        const diff = today - startDate;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById("daysCounter").innerHTML = 
+            days + " days together 💞";
+    }
+
+    updateDays();
+</script>
+
                 </div>
             </div>
             
@@ -566,6 +586,48 @@
             addFloatingElements();
         });
     </script>
+    <!-- Hearts Explosion Effect -->
+<style>
+    .heart {
+        position: fixed;
+        font-size: 24px;
+        animation: fly 2s linear forwards;
+        z-index: 9999;
+    }
+    @keyframes fly {
+        0% {opacity: 1; transform: translateY(0) scale(1);}
+        100% {opacity: 0; transform: translateY(-200px) scale(2);}
+    }
+    .love-button {
+        padding: 12px 25px;
+        background: #d81b60;
+        color: white;
+        border-radius: 15px;
+        cursor: pointer;
+        font-size: 20px;
+        margin-top: 15px;
+        display: inline-block;
+    }
+</style>
+
+<div style="text-align:center;">
+    <div class="love-button" onclick="explodeHearts()">I LOVE YOU ❤️</div>
+</div>
+
+<script>
+function explodeHearts() {
+    for (let i = 0; i < 50; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = (window.innerHeight - 20) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 2000);
+    }
+}
+</script>
+
 </body>
 </html>
-
